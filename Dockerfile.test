@@ -1,0 +1,7 @@
+FROM tecnativa/docker-socket-proxy:latest
+RUN apk add --update --no-cache curl nmap-ncat bash
+COPY test.sh /
+COPY test-server.sh /
+COPY wait-for-it.sh /
+ENTRYPOINT ["/test.sh"]
+CMD "test.sh"
